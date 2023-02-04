@@ -20,14 +20,14 @@ const Search = ({ isSearching, onLocationChange }) => {
           ></path>
         </svg>
         <input
-        defaultValue={'tehran'}
+          defaultValue={'lahore'}
           type="search"
           role="search"
           onChange={onLocationChange}
           placeholder="Search for a location"
           className="mr-8 w-48 placeholder-gray-500 outline-none dark:bg-black dark:text-white dark:placeholder-white md:w-96"
         />
-        
+
         {isSearching ? (
           <svg
             className="mt-1 -ml-1 h-5 w-5 animate-spin text-indigo-700 dark:text-gray-500"

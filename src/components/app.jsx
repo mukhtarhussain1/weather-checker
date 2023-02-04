@@ -11,7 +11,7 @@ import UnitsToggle from './units-toggle';
 const searchTimeoutInMs = 600;
 
 export default function App() {
-  const [location, setLocation] = React.useState('Tehran');
+  const [location, setLocation] = React.useState('Lahore');
   const [debouncedSearchTerm, setDebouncedSearchTerm] = React.useState('');
   const [isSearching, setIsSearching] = React.useState(false);
   const [units, setUnits] = React.useState('metric');
@@ -25,19 +25,16 @@ export default function App() {
   );
 
   const handleLocationChange = (event) => {
-
     const query = event.target.value.trim();
     if (query) {
       setIsSearching(true);
     }
     debounceSearch(query);
-if (query==='') {
-  setLocation('')
-}
-
+    if (query === '') {
+      setLocation('');
+    }
   };
 
-  
   const handleUnitsChange = (newUnits) => {
     setUnits(newUnits);
   };
@@ -49,25 +46,27 @@ if (query==='') {
     }
   }, [debouncedSearchTerm]);
 
-  return (  
+  return (
     <div className="min-h-screen dark:bg-black">
-    
-      <Router> 
-         <Layout>
-        <Routes>
-          <Route
-            path="/"
-            element={
-            
+      <Router>
+        <Layout>
+          <Routes>
+            <Route
+              path="/"
+              element={
                 <main>
-                  <div className="mx-auto w-5/6 md:w-full xl:max-w-6xl 2xl:max-w-7xl">
+                  <div className="mx-auto mb-5 w-5/6 pb-10 md:w-full xl:max-w-6xl 2xl:max-w-7xl">
                     <Search
                       isSearching={isSearching}
                       onLocationChange={handleLocationChange}
                     />
                     <div className="divide-light-blue-400 m-auto mt-4 h-auto w-full divide-y-2 overflow-hidden rounded-lg shadow-lg md:w-3/5 lg:w-1/2">
-                    {location&&<WeatherCard location={location} units={units} />}  
-                   {location&&<ForecastCard location={location} units={units} />} 
+                      {location && (
+                        <WeatherCard location={location} units={units} />
+                      )}
+                      {location && (
+                        <ForecastCard location={location} units={units} />
+                      )}
                     </div>
                     <UnitsToggle
                       units={units}
@@ -75,12 +74,11 @@ if (query==='') {
                     />
                   </div>
                 </main>
-           
-            }
-          />
-        </Routes>
+              }
+            />
+          </Routes>
         </Layout>
-      </Router>   
+      </Router>
     </div>
   );
 }
