@@ -5,5 +5,5 @@ A weather checker app powered by React, Vite, TailWind, Swr, PropType
 ##### [Live Demo](https://weather-checker.erfjs.com/) on Netlify
 
 <p align="center">
-  <a src="#"><img src="./readme/example.png" width="100%" height="auto" /></a>
+  <a src="https://weather-checker.erfjs.com/" target="_blank"><img src="./readme/exampleImg.png" width="100%" height="auto" /></a>
 </p>
